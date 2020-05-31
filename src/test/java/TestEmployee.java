@@ -152,4 +152,15 @@ public class TestEmployee {
                 .post(END_POINT_FOR_EMPLOYEE)
                 .then().statusCode(400);
     }
+
+    @Test
+    public void test004(){
+        LOGGER.info("When invalid role is send, it returns bad request.");
+        given()
+                .spec(spec)
+                .body(Employee.build().setRole("Foo"))
+                .when()
+                .post(END_POINT_FOR_EMPLOYEE)
+                .then().statusCode(400);
+    }
 }
